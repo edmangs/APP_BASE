@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="AppModelBundle\Entity\ProteccionSeguridadRepository" name="AppModelBundle\Entity\ProteccionSeguridad" table="proteccion_seguridad">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    
+    <field name="nombre" type="string" column="nombre" length="150" nullable="0"/>
+    <field name="fechaCreacion" type="datetime" column="fecha_creacion" nullable="0"/>
+    
+    <many-to-one field="usuario" target-entity="AppModelBundle\Entity\User" inversed-by="proteccionSeguridades" orphan-removal="true">
+        <join-column name="usuario_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
+    </many-to-one>
+    
+    <many-to-one field="nivel" target-entity="AppModelBundle\Entity\Nivel" inversed-by="proteccionSeguridades" orphan-removal="true">
+        <join-column name="nivel_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="0"/>
+    </many-to-one>
+    
+    <many-to-one field="procesoJuridico" target-entity="AppModelBundle\Entity\ProcesoJuridicoUsuario" inversed-by="proteccionSeguridades" orphan-removal="true">
+        <join-column name="proceso_juridico_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
+    </many-to-one>
+    
+  </entity>
+</doctrine-mapping>
