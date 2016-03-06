@@ -33,7 +33,7 @@ class ProteccionSeguridad
     private $nivel;
 
     /**
-     * @var \AppModelBundle\Entity\ProcesoJuridicoUsuario
+     * @var \AppModelBundle\Entity\ProcesoJuridico
      */
     private $procesoJuridico;
 
@@ -147,11 +147,11 @@ class ProteccionSeguridad
     /**
      * Set procesoJuridico
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridico
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesoJuridico
      *
      * @return ProteccionSeguridad
      */
-    public function setProcesoJuridico(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridico = null)
+    public function setProcesoJuridico(\AppModelBundle\Entity\ProcesoJuridico $procesoJuridico = null)
     {
         $this->procesoJuridico = $procesoJuridico;
 
@@ -161,7 +161,7 @@ class ProteccionSeguridad
     /**
      * Get procesoJuridico
      *
-     * @return \AppModelBundle\Entity\ProcesoJuridicoUsuario
+     * @return \AppModelBundle\Entity\ProcesoJuridico
      */
     public function getProcesoJuridico()
     {

@@ -20,7 +20,7 @@
             </cascade>
         </one-to-many>
         
-        <one-to-many field="procesosJuridicos" target-entity="AppModelBundle\Entity\ProcesoJuridicoUsuario" mapped-by="usuario" orphan-removal="true">
+        <one-to-many field="procesosJuridicos" target-entity="AppModelBundle\Entity\ProcesoJuridico" mapped-by="usuario" orphan-removal="true">
             <cascade>
                 <cascade-persist/>
             </cascade>

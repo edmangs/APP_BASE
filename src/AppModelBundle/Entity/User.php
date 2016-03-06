@@ -29,6 +29,36 @@ class User extends BaseUser {
      */
     private $age;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sociales;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tarifas;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $procesosJuridicos;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $proteccionSeguridades;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $nivelEducativos;
+
+    /**
+     * @var \AppModelBundle\Entity\TipoUsuario
+     */
+    private $tipoUsuario;
+
 
     /**
      * Set picture
@@ -77,36 +107,6 @@ class User extends BaseUser {
     {
         return $this->age;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $sociales;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $tarifas;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $procesosJuridicos;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $proteccionSeguridades;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $nivelEducativos;
-
-    /**
-     * @var \AppModelBundle\Entity\TipoUsuario
-     */
-    private $tipoUsuario;
-
 
     /**
      * Add sociale
@@ -179,11 +179,11 @@ class User extends BaseUser {
     /**
      * Add procesosJuridico
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesosJuridico
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesosJuridico
      *
      * @return User
      */
-    public function addProcesosJuridico(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesosJuridico)
+    public function addProcesosJuridico(\AppModelBundle\Entity\ProcesoJuridico $procesosJuridico)
     {
         $this->procesosJuridicos[] = $procesosJuridico;
 
@@ -193,9 +193,9 @@ class User extends BaseUser {
     /**
      * Remove procesosJuridico
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesosJuridico
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesosJuridico
      */
-    public function removeProcesosJuridico(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesosJuridico)
+    public function removeProcesosJuridico(\AppModelBundle\Entity\ProcesoJuridico $procesosJuridico)
     {
         $this->procesosJuridicos->removeElement($procesosJuridico);
     }

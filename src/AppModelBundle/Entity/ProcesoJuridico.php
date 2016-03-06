@@ -3,9 +3,9 @@
 namespace AppModelBundle\Entity;
 
 /**
- * ProcesoJuridicoUsuario
+ * ProcesoJuridico
  */
-class ProcesoJuridicoUsuario
+class ProcesoJuridico
 {
     /**
      * @var string
@@ -65,7 +65,7 @@ class ProcesoJuridicoUsuario
      *
      * @param string $descripcion
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setDescripcion($descripcion)
     {
@@ -89,7 +89,7 @@ class ProcesoJuridicoUsuario
      *
      * @param string $documento
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setDocumento($documento)
     {
@@ -113,7 +113,7 @@ class ProcesoJuridicoUsuario
      *
      * @param boolean $valido
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setValido($valido)
     {
@@ -137,7 +137,7 @@ class ProcesoJuridicoUsuario
      *
      * @param \DateTime $fechaCreacion
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setFechaCreacion($fechaCreacion)
     {
@@ -171,7 +171,7 @@ class ProcesoJuridicoUsuario
      *
      * @param \AppModelBundle\Entity\proteccionSeguridad $proteccionSeguridade
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function addProteccionSeguridade(\AppModelBundle\Entity\proteccionSeguridad $proteccionSeguridade)
     {
@@ -205,7 +205,7 @@ class ProcesoJuridicoUsuario
      *
      * @param \AppModelBundle\Entity\User $usuario
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setUsuario(\AppModelBundle\Entity\User $usuario = null)
     {
@@ -229,7 +229,7 @@ class ProcesoJuridicoUsuario
      *
      * @param \AppModelBundle\Entity\TipoProcesoJuridico $tipoProcesoJuridico
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setTipoProcesoJuridico(\AppModelBundle\Entity\TipoProcesoJuridico $tipoProcesoJuridico)
     {
@@ -253,7 +253,7 @@ class ProcesoJuridicoUsuario
      *
      * @param \AppModelBundle\Entity\Nivel $nivel
      *
-     * @return ProcesoJuridicoUsuario
+     * @return ProcesoJuridico
      */
     public function setNivel(\AppModelBundle\Entity\Nivel $nivel)
     {

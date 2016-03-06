@@ -8,7 +8,7 @@
     <field name="nombre" type="string" column="nombre" length="100"/>
     <field name="fechaCreacion" type="datetime" column="fecha_creacion"/>
     
-    <one-to-many field="procesoJuridicosUsuario" target-entity="AppModelBundle\Entity\ProcesoJuridicoUsuario" mapped-by="tipoProcesoJuridico" orphan-removal="true">
+    <one-to-many field="procesoJuridicosUsuario" target-entity="AppModelBundle\Entity\ProcesoJuridico" mapped-by="tipoProcesoJuridico" orphan-removal="true">
         <cascade>
             <cascade-persist/>
         </cascade>

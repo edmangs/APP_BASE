@@ -16,7 +16,7 @@
         <join-column name="nivel_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="0"/>
     </many-to-one>
     
-    <many-to-one field="procesoJuridico" target-entity="AppModelBundle\Entity\ProcesoJuridicoUsuario" inversed-by="proteccionSeguridades" orphan-removal="true">
+    <many-to-one field="procesoJuridico" target-entity="AppModelBundle\Entity\ProcesoJuridico" inversed-by="proteccionSeguridades" orphan-removal="true">
         <join-column name="proceso_juridico_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
     </many-to-one>
     

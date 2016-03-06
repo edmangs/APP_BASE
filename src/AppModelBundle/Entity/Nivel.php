@@ -102,11 +102,11 @@ class Nivel
     /**
      * Add procesoJuridicosUsuario
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario
      *
      * @return Nivel
      */
-    public function addProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario)
+    public function addProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario)
     {
         $this->procesoJuridicosUsuario[] = $procesoJuridicosUsuario;
 
@@ -116,9 +116,9 @@ class Nivel
     /**
      * Remove procesoJuridicosUsuario
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario
      */
-    public function removeProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario)
+    public function removeProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario)
     {
         $this->procesoJuridicosUsuario->removeElement($procesoJuridicosUsuario);
     }

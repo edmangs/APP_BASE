@@ -96,11 +96,11 @@ class TipoProcesoJuridico
     /**
      * Add procesoJuridicosUsuario
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario
      *
      * @return TipoProcesoJuridico
      */
-    public function addProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario)
+    public function addProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario)
     {
         $this->procesoJuridicosUsuario[] = $procesoJuridicosUsuario;
 
@@ -110,9 +110,9 @@ class TipoProcesoJuridico
     /**
      * Remove procesoJuridicosUsuario
      *
-     * @param \AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario
+     * @param \AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario
      */
-    public function removeProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridicoUsuario $procesoJuridicosUsuario)
+    public function removeProcesoJuridicosUsuario(\AppModelBundle\Entity\ProcesoJuridico $procesoJuridicosUsuario)
     {
         $this->procesoJuridicosUsuario->removeElement($procesoJuridicosUsuario);
     }
