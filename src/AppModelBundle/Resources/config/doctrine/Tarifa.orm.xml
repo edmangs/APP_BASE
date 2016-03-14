@@ -10,7 +10,7 @@
     <field name="anoTrabajo" type="datetime" column="ano_trabajo" nullable="0"/>
     <field name="descripcion" type="text" column="descripcion" length="400" nullable="0"/>
     
-    <many-to-one field="usuario" target-entity="AppModelBundle\Entity\User" inversed-by="tarifas" orphan-removal="true">
+    <many-to-one field="usuario" target-entity="AppModelBundle\Entity\Usuario" inversed-by="tarifas" orphan-removal="true">
         <join-column name="usuario_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
     </many-to-one>
     

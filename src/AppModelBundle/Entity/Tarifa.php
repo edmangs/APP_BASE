@@ -33,7 +33,7 @@ class Tarifa
     private $id;
 
     /**
-     * @var \AppModelBundle\Entity\User
+     * @var \AppModelBundle\Entity\Usuario
      */
     private $usuario;
 
@@ -152,11 +152,11 @@ class Tarifa
     /**
      * Set usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return Tarifa
      */
-    public function setUsuario(\AppModelBundle\Entity\User $usuario = null)
+    public function setUsuario(\AppModelBundle\Entity\Usuario $usuario = null)
     {
         $this->usuario = $usuario;
 
@@ -166,7 +166,7 @@ class Tarifa
     /**
      * Get usuario
      *
-     * @return \AppModelBundle\Entity\User
+     * @return \AppModelBundle\Entity\Usuario
      */
     public function getUsuario()
     {
@@ -197,3 +197,4 @@ class Tarifa
         return $this->tipoTrabajo;
     }
 }
+

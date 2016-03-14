@@ -38,7 +38,7 @@ class ProcesoJuridico
     private $proteccionSeguridades;
 
     /**
-     * @var \AppModelBundle\Entity\User
+     * @var \AppModelBundle\Entity\Usuario
      */
     private $usuario;
 
@@ -203,11 +203,11 @@ class ProcesoJuridico
     /**
      * Set usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return ProcesoJuridico
      */
-    public function setUsuario(\AppModelBundle\Entity\User $usuario = null)
+    public function setUsuario(\AppModelBundle\Entity\Usuario $usuario = null)
     {
         $this->usuario = $usuario;
 
@@ -217,7 +217,7 @@ class ProcesoJuridico
     /**
      * Get usuario
      *
-     * @return \AppModelBundle\Entity\User
+     * @return \AppModelBundle\Entity\Usuario
      */
     public function getUsuario()
     {
@@ -272,3 +272,4 @@ class ProcesoJuridico
         return $this->nivel;
     }
 }
+

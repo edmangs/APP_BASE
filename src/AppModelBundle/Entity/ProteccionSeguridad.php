@@ -23,7 +23,7 @@ class ProteccionSeguridad
     private $id;
 
     /**
-     * @var \AppModelBundle\Entity\User
+     * @var \AppModelBundle\Entity\Usuario
      */
     private $usuario;
 
@@ -99,11 +99,11 @@ class ProteccionSeguridad
     /**
      * Set usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return ProteccionSeguridad
      */
-    public function setUsuario(\AppModelBundle\Entity\User $usuario = null)
+    public function setUsuario(\AppModelBundle\Entity\Usuario $usuario = null)
     {
         $this->usuario = $usuario;
 
@@ -113,7 +113,7 @@ class ProteccionSeguridad
     /**
      * Get usuario
      *
-     * @return \AppModelBundle\Entity\User
+     * @return \AppModelBundle\Entity\Usuario
      */
     public function getUsuario()
     {
@@ -168,3 +168,4 @@ class ProteccionSeguridad
         return $this->procesoJuridico;
     }
 }
+

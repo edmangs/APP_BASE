@@ -127,3 +127,4 @@ class TipoTrabajo
         return $this->tarifas;
     }
 }
+

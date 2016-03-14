@@ -96,11 +96,11 @@ class TipoUsuario
     /**
      * Add usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return TipoUsuario
      */
-    public function addUsuario(\AppModelBundle\Entity\User $usuario)
+    public function addUsuario(\AppModelBundle\Entity\Usuario $usuario)
     {
         $this->usuarios[] = $usuario;
 
@@ -110,9 +110,9 @@ class TipoUsuario
     /**
      * Remove usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      */
-    public function removeUsuario(\AppModelBundle\Entity\User $usuario)
+    public function removeUsuario(\AppModelBundle\Entity\Usuario $usuario)
     {
         $this->usuarios->removeElement($usuario);
     }
@@ -127,3 +127,4 @@ class TipoUsuario
         return $this->usuarios;
     }
 }
+

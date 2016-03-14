@@ -127,3 +127,4 @@ class NivelEducativo
         return $this->nivelEducativos;
     }
 }
+

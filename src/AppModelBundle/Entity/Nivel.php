@@ -167,3 +167,4 @@ class Nivel
         return $this->proteccionSeguridades;
     }
 }
+

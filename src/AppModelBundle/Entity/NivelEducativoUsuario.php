@@ -33,7 +33,7 @@ class NivelEducativoUsuario
     private $nivel;
 
     /**
-     * @var \AppModelBundle\Entity\User
+     * @var \AppModelBundle\Entity\Usuario
      */
     private $usuario;
 
@@ -147,11 +147,11 @@ class NivelEducativoUsuario
     /**
      * Set usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return NivelEducativoUsuario
      */
-    public function setUsuario(\AppModelBundle\Entity\User $usuario)
+    public function setUsuario(\AppModelBundle\Entity\Usuario $usuario)
     {
         $this->usuario = $usuario;
 
@@ -161,10 +161,11 @@ class NivelEducativoUsuario
     /**
      * Get usuario
      *
-     * @return \AppModelBundle\Entity\User
+     * @return \AppModelBundle\Entity\Usuario
      */
     public function getUsuario()
     {
         return $this->usuario;
     }
 }
+

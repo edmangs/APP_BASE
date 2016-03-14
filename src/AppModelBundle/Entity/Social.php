@@ -13,7 +13,7 @@ class Social
     private $id;
 
     /**
-     * @var \AppModelBundle\Entity\User
+     * @var \AppModelBundle\Entity\Usuario
      */
     private $usuario;
 
@@ -31,11 +31,11 @@ class Social
     /**
      * Set usuario
      *
-     * @param \AppModelBundle\Entity\User $usuario
+     * @param \AppModelBundle\Entity\Usuario $usuario
      *
      * @return Social
      */
-    public function setUsuario(\AppModelBundle\Entity\User $usuario = null)
+    public function setUsuario(\AppModelBundle\Entity\Usuario $usuario = null)
     {
         $this->usuario = $usuario;
 
@@ -45,10 +45,11 @@ class Social
     /**
      * Get usuario
      *
-     * @return \AppModelBundle\Entity\User
+     * @return \AppModelBundle\Entity\Usuario
      */
     public function getUsuario()
     {
         return $this->usuario;
     }
 }
+

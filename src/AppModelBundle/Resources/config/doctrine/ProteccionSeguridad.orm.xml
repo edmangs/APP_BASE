@@ -8,7 +8,7 @@
     <field name="nombre" type="string" column="nombre" length="150" nullable="0"/>
     <field name="fechaCreacion" type="datetime" column="fecha_creacion" nullable="0"/>
     
-    <many-to-one field="usuario" target-entity="AppModelBundle\Entity\User" inversed-by="proteccionSeguridades" orphan-removal="true">
+    <many-to-one field="usuario" target-entity="AppModelBundle\Entity\Usuario" inversed-by="proteccionSeguridades" orphan-removal="true">
         <join-column name="usuario_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
     </many-to-one>
     
