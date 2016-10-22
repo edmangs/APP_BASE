@@ -29,13 +29,13 @@ class FixturesNivelEducativoUsuario extends AbstractFixture implements OrderedFi
 
     public function load(ObjectManager $manager) {
         
-        for($i = 0; $i <= 25; $i++) {
+        for($i = 0; $i <= 500; $i++) {
             
             $object = new NivelEducativoUsuario();
             
             $object->setAnoFinalizacion(new \DateTime());
             $object->setFechaCreacion(new \DateTime());
-            $object->setUsuario($this->getReference('usuario_' . rand(0, 49)));
+            $object->setUsuario($this->getReference('usuario_' . rand(0, 499)));
             $object->setNivel($this->getReference('nivel_educativo_'. $this->getNivelEducativo()));
             $object->setCarrera($this->getReference('carrera_'.$this->getCarrera()));
             

@@ -272,4 +272,3 @@ class ProcesoJuridico
         return $this->nivel;
     }
 }
-

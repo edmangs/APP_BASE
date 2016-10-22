@@ -52,4 +52,3 @@ class Social
         return $this->usuario;
     }
 }
-

@@ -9,6 +9,7 @@ use AppModelBundle\Entity\ProcesoJuridico;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+use AppModelBundle\DataFixtures\ORM\FixturesUsuario;
 
 class FixturesProcesoJuridico extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface {
 
@@ -35,18 +36,22 @@ class FixturesProcesoJuridico extends AbstractFixture implements OrderedFixtureI
     public function load(ObjectManager $manager) {
         
         $procesos = array();
-        for($i = 0; $i <= 15; $i++) {
+        for($i = 0; $i <= 200; $i++) {
             
             $object = new ProcesoJuridico();
             
-            $object->setFechaCreacion(new \DateTime());
+            $user = $this->getReference('usuario_' . rand(0, 499));
+            $userFixtures = new FixturesUsuario();
+            $date = $userFixtures->getDate($user->getFechaCreacion());
+            $newDate = date('Y-m-d', strtotime($date['date']. ' '.$date['operator'].' '.$date['days'].' days'));
+            $object->setFechaCreacion(new \DateTime($newDate));
             
             $object->setDescripcion($this->getLoremIpsum());
             $object->setDocumento($this->getFile());
             $val = rand(0, 1);
             $object->setValido($val);
             
-            $object->setUsuario($this->getReference('usuario_' . rand(0, 49)));
+            $object->setUsuario($user);
             $object->setTipoProcesoJuridico($this->getReference('tipo_proceso_juridico_' . $this->getTipoProcesoJuridico()));
             $object->setNivel($this->getReference('nivel_' . $this->getNivel()));
             

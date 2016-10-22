@@ -156,4 +156,3 @@ class Carrera
         return $this->nivelEducativos;
     }
 }
-

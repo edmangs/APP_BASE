@@ -168,4 +168,3 @@ class NivelEducativoUsuario
         return $this->usuario;
     }
 }
-

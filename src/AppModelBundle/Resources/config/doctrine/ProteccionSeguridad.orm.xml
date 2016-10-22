@@ -20,5 +20,9 @@
         <join-column name="proceso_juridico_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
     </many-to-one>
     
+    <many-to-one field="entidadProteccion" target-entity="AppModelBundle\Entity\EntidadProteccion" inversed-by="procesoJuridicos" orphan-removal="true">
+        <join-column name="entidad_proteccion_id" referenced-column-name="id" on-delete="restrict" on-update="cascade" nullable="1"/>
+    </many-to-one>
+    
   </entity>
 </doctrine-mapping>

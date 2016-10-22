@@ -127,4 +127,3 @@ class TipoUsuario
         return $this->usuarios;
     }
 }
-

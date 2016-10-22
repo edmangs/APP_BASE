@@ -197,4 +197,3 @@ class Tarifa
         return $this->tipoTrabajo;
     }
 }
-

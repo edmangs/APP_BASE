@@ -29,7 +29,7 @@ class FixturesUsuario extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager) {
         
-        for($i = 0; $i <= 50; $i++) {
+        for($i = 0; $i <= 500; $i++) {
             
             $user = $this->getUserData();
             $userName = $this->getUserName($user);
@@ -40,7 +40,10 @@ class FixturesUsuario extends AbstractFixture implements OrderedFixtureInterface
             $object->setNombreUsuario($userName);
             $object->setCorreoElectronico($userName . "@correo.com");
             $object->setEdad(rand(18, 70));
-            $object->setFechaCreacion(new \DateTime());
+            
+            $date = $this->getDate();
+            $newDate = date('Y-m-d', strtotime($date['date']. ' '.$date['operator'].' '.$date['days'].' days'));
+            $object->setFechaCreacion(new \Datetime($newDate));
             $object->setTipoUsuario($this->getReference('tipo_usuario_periodista'));
             
             $manager->persist($object);
@@ -49,16 +52,37 @@ class FixturesUsuario extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
     }
     
-    public function getUserData(){
-        $nombre = array("Manuel", "Ana", "Jose", "Maria", "Migel", "Sara", "Dairo", "Alex", "Nicol", "Samuel");
-        $nombre2 = array("", "Juan", "Paola", "Matias", "Sandra", "Octavio", "Diana", "Fefipe", "Cindy", "Estevan");
+    public function getDate($date = null) {
+        if(!$date){
+            $date = date("Y-m-d H:i:s");
+        }else{
+            $date = $date->format('Y-m-d');
+        }
         
-        $apellido = array("Hernandez", "Guzman", "Rojas", "Gil", "Tavera", "Rengifo", "Gonzalez", "Pereira", "Ocampo", "Diaz");
-        $apellido2 = array("", "Leiva", "Buitrago", "Neruda", "Olivera", "", "Gonzalez", "Jimenez", "Munevar", "Zapata");
+        $operator = '-';
+        $days = rand(0, 1500);
+        if(rand(0,1) == true){
+            $operator = '+';
+        }
+        
+        if($date){
+            $operator = '+';
+        }
+        
+        return array("date" => $date, 'operator' => $operator, "days" => $days);
+    }
+    
+    public function getUserData(){
+        $names = json_decode('{"mens":{"names":[{"name":"Javier"},{"name":"Miguel"},{"name":"Luis"},{"name":"Jaime"},{"name":"Pedro"},{"name":"Camilo"},{"name":"David"},{"name":"Felipe"},{"name":"Jhon"},{"name":"Jhonatan"},{"name":"Johan"},{"name":"Faiber"},{"name":"Antonio"},{"name":"Francisco"},{"name":"Efraín"},{"name":"Diego"},{"name":"Dario"},{"name":"Felix"},{"name":"Fermin"},{"name":"Flavio"},{"name":"Moisés"},{"name":"Andres"}]},"womes":{"names":[{"name":"Nicol"},{"name":"Paula"},{"name":"Paola"},{"name":"Andrea"},{"name":"Sandra"},{"name":"Katherine"},{"name":"Beatriz"},{"name":"Elena"},{"name":"Elisa"},{"name":"Fanny"},{"name":"Margarita"},{"name":"Marta"},{"name":"Mariana"},{"name":"Mónica"},{"name":"Sara"},{"name":"Renata"},{"name":"Samantha"},{"name":"Juana"},{"name":"Ashley"},{"name":"Violeta"},{"name":"Zoe"},{"name":"Olivia"}]},"lastNames":[{"lastName":"Abadía"},{"lastName":"Aguinaga"},{"lastName":"Alcaraz"},{"lastName":"Bandama"},{"lastName":"Bautista"},{"lastName":"Bouffard"},{"lastName":"Cervantes"},{"lastName":"Clariana"},{"lastName":"Dorantes"},{"lastName":"Echebarría"},{"lastName":"Elizondo"},{"lastName":"Olid"},{"lastName":"Porsimecopian"},{"lastName":"Ríos"},{"lastName":"Rovira"},{"lastName":"Rubio"},{"lastName":"Sacristán"},{"lastName":"Sagarra"},{"lastName":"Elejalde"},{"lastName":"Godoy"},{"lastName":"Gonzaga"},{"lastName":"Hermosa"},{"lastName":"Lagos"},{"lastName":"Larrinaga"},{"lastName":"Leguina"},{"lastName":"Lerma"},{"lastName":"Sanz"},{"lastName":"Vahamonde"},{"lastName":"Zapata"},{"lastName":"Almagro"},{"lastName":"Almunia"},{"lastName":"Anglés"},{"lastName":"Arados"},{"lastName":"Avidave"},{"lastName":"Balaguer"},{"lastName":""},{"lastName":""}]}', true);
+        
+        $gender = 'womes';
+        if(rand(0,1) == true){
+            $gender = 'mens';
+        }
         
         return  array(
-            "nombre" => $nombre[rand(0, 9)] . ' ' .$nombre2[rand(0, 9)], 
-            "apellido" => $apellido[rand(0, 9)] . ' ' . $apellido2[rand(0, 9)]
+            "nombre" => $names[$gender]['names'][rand(0, 21)]['name'] . ' ' . $names[$gender]['names'][rand(0, 21)]['name'], 
+            "apellido" => $names['lastNames'][rand(0, 36)]['lastName'] . ' ' . $names['lastNames'][rand(0, 36)]['lastName']
         );
     }
     

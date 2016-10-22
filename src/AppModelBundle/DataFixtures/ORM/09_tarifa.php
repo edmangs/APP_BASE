@@ -8,6 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use AppModelBundle\Entity\Tarifa;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use AppModelBundle\DataFixtures\ORM\FixturesUsuario;
 
 class FixturesTarifa extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface {
 
@@ -29,15 +30,21 @@ class FixturesTarifa extends AbstractFixture implements OrderedFixtureInterface,
 
     public function load(ObjectManager $manager) {
         
-        for($i = 0; $i <= 25; $i++) {
+        for($i = 0; $i <= 300; $i++) {
             
             $object = new Tarifa();
             
             $object->setPrecio(rand(1000000, 10000000));
             $object->setAnoTrabajo(new \DateTime());
             $object->setDescripcion($this->getLoremIpsum());
-            $object->setFechaCreacion(new \DateTime());
-            $object->setUsuario($this->getReference('usuario_' . rand(0, 49)));
+            
+            $user = $this->getReference('usuario_' . rand(0, 499));
+            $userFixtures = new FixturesUsuario();
+            $date = $userFixtures->getDate($user->getFechaCreacion());
+            $newDate = date('Y-m-d', strtotime($date['date']. ' '.$date['operator'].' '.$date['days'].' days'));
+            $object->setFechaCreacion(new \DateTime($newDate));
+            
+            $object->setUsuario($user);
             $object->setTipoTrabajo($this->getReference('tipo_trabajo_'.$this->getTrabajo()));
             
             $manager->persist($object);

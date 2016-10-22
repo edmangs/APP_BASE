@@ -1,0 +1,19 @@
+<section data-parent-name="{{ form.vars.name }}">
+    <div class="col-sm-12 col-md-3">
+        {{ form_row(form.clase_tramite) }}
+    </div>
+    <div class="col-sm-12 col-md-3">
+        {{ form_row(form.clase_causal, {attr: {class: 'form-control select-causal-' ~ form.vars.name} }) }}
+    </div>
+    <div class="col-sm-12 col-md-3">
+        {{ form_row(form.clase, {attr: {class: 'form-control select-clase-' ~ form.vars.name} }) }}
+    </div>
+    <div class="col-sm-12 col-md-3">
+        <a class="btn btn-danger" onclick="app.removeFormCollection(this)">
+            <i class="fa fa-trash"></i>
+            {{ 'btn.delete' | trans }}
+        </a>
+    </div>
+
+    <hr class="col-sm-12 background-orange" />
+</section>

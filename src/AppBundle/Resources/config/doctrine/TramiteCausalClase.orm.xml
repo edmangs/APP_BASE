@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+    xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+    
+    <entity name="AppBundle\Entity\TramiteCausalClase" table="tramite_causal_clase">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        
+        <field name="created" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updated" type="datetime">
+            <gedmo:timestampable on="update"/>
+        </field>
+        
+        <many-to-one field="tramite" target-entity="AppBundle\Entity\Tramite" inversed-by="tramitesCausalClases">
+            <join-column name="tramite_id" referenced-column-name="id" />
+        </many-to-one>
+        
+        <many-to-one field="causal" target-entity="AppBundle\Entity\Causal" inversed-by="tramitesCausalClases">
+            <join-column name="causal_id" referenced-column-name="id" />
+        </many-to-one>
+        
+        <many-to-one field="clase" target-entity="AppBundle\Entity\Clase" inversed-by="tramitesCausalClases">
+            <join-column name="clase_id" referenced-column-name="id" />
+        </many-to-one>
+        
+    </entity>
+</doctrine-mapping>

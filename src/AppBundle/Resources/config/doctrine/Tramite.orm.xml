@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+    xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+    
+    <entity name="AppBundle\Entity\Tramite" table="tramite">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="name" type="string" column="name" length="255" unique="true"/>
+        <field name="code" type="string" column="code" length="255" unique="true"/>
+    
+        <field name="slug" type="string" length="255" unique="true">
+            <gedmo:slug unique="true" style="lower" updatable="false" separator="-" fields="name" />
+        </field>
+        <field name="created" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updated" type="datetime">
+            <gedmo:timestampable on="update"/>
+        </field>
+        
+        <one-to-many field="causales" target-entity="AppBundle\Entity\Causal" mapped-by="tramite" orphan-removal="true">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+        
+        <one-to-many field="tramitesCausalClases" target-entity="AppBundle\Entity\TramiteCausalClase" mapped-by="tramite" orphan-removal="true">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+        
+    </entity>
+</doctrine-mapping>

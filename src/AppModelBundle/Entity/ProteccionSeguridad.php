@@ -7,6 +7,7 @@ namespace AppModelBundle\Entity;
  */
 class ProteccionSeguridad
 {
+    
     /**
      * @var string
      */
@@ -36,6 +37,11 @@ class ProteccionSeguridad
      * @var \AppModelBundle\Entity\ProcesoJuridico
      */
     private $procesoJuridico;
+
+    /**
+     * @var \AppModelBundle\Entity\EntidadProteccion
+     */
+    private $entidadProteccion;
 
 
     /**
@@ -167,5 +173,28 @@ class ProteccionSeguridad
     {
         return $this->procesoJuridico;
     }
-}
 
+    /**
+     * Set entidadProteccion
+     *
+     * @param \AppModelBundle\Entity\EntidadProteccion $entidadProteccion
+     *
+     * @return ProteccionSeguridad
+     */
+    public function setEntidadProteccion(\AppModelBundle\Entity\EntidadProteccion $entidadProteccion = null)
+    {
+        $this->entidadProteccion = $entidadProteccion;
+
+        return $this;
+    }
+
+    /**
+     * Get entidadProteccion
+     *
+     * @return \AppModelBundle\Entity\EntidadProteccion
+     */
+    public function getEntidadProteccion()
+    {
+        return $this->entidadProteccion;
+    }
+}

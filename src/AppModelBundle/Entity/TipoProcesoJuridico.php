@@ -127,4 +127,3 @@ class TipoProcesoJuridico
         return $this->procesoJuridicosUsuario;
     }
 }
-

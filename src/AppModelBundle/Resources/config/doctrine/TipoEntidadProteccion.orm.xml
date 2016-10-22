@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppModelBundle\Entity\TipoEntidadProteccion" table="Tipo_entidad_proteccion">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" column="name" length="150" nullable="0"/>
+    <field name="fechaCreacion" type="datetime" column="fechaCreacion"/>
+    
+    <one-to-many field="entidadProtecciones" target-entity="AppModelBundle\Entity\EntidadProteccion" mapped-by="tipoEntidadProteccion" orphan-removal="true">
+        <cascade>
+            <cascade-persist/>
+        </cascade>
+    </one-to-many>
+    
+  </entity>
+</doctrine-mapping>

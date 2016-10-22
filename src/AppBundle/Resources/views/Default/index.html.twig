@@ -1,0 +1,59 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            
+            {% include 'AppBundle:Default:flash.message.html.twig' %}
+            
+            <div class="col-xs-12">
+                {{ form_start(form) }}
+
+                <div class="col-sm-12" >
+                    {{ form_label(form.dataCollections) }}
+                    <ul id="collecction-fields-list" style="list-style: none;" 
+                        data-collection-count="{{ form.dataCollections is defined ? form.dataCollections|length:0 }}"
+                        data-prototype="{% filter escape %}
+                            {{ include('AppBundle:Form:collection.html.twig', { 'form': form.dataCollections.vars.prototype }) }}
+                        {% endfilter %}">
+                        {% for collection in form.dataCollections %}
+                            <li>{{ include('AppBundle:Form:collection.html.twig', { 'form': collection }) }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="col-sm-12 text-right">
+                        <br>
+                        <a id="add-another-collection" class="btn btn-default">
+                            <span class="fa fa-plus"></span> {{ 'add.colleccion' | trans }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success">
+                        <i class="fa fa-save"></i>
+                        {{ 'btn.save' | trans }}
+                    </button>
+                </div>
+                <div style="display: none">
+                    {{ form_rest(form) }}
+                </div>
+            </div>
+        </div>
+            
+        <div class="text-center load-spinner" style="display: none;">
+            <div class="col-xs-12">
+                <br/></br><br/></br>
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        
+    </script>
+{% endblock %}

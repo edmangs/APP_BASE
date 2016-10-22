@@ -1,0 +1,7 @@
+services:
+    app.container_aware_type:
+        class: AppBundle\Form\Type\CollectionFormType
+        calls:
+          - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: 'collection_data' }

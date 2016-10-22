@@ -5,12 +5,13 @@ namespace AppModelBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppModelBundle\Entity\ProteccionSeguridad;
+use AppModelBundle\Entity\TipoEntidadProteccion;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+use AppModelBundle\DataFixtures\ORM\FixturesUsuario;
 
-class FixturesProteccionSeguridad extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface {
+class FixturesTipoEntidadProteccion extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface {
 
     public function getOrder() {
         return 12;
@@ -30,19 +31,18 @@ class FixturesProteccionSeguridad extends AbstractFixture implements OrderedFixt
 
     public function load(ObjectManager $manager) {
         
-        for($i = 0; $i <= 15; $i++) {
+        $types = array("Entidades del ejecutivo", "Ministerio Público", "Nacionales no gubernamentales");
+        
+        foreach ($types as $key => $type) {
+            $object = new TipoEntidadProteccion();
             
-            $object = new ProteccionSeguridad();
-            
-            $object->setNombre($this->getNombreProteccion());
+            $object->setName($type);
             $object->setFechaCreacion(new \DateTime());
-            $object->setUsuario($this->getReference('usuario_' . rand(0, 49)));
-            $object->setProcesoJuridico($this->getReference($this->getProcesoJuridicos()));
-            $object->setNivel($this->getReference('nivel_' . $this->getNivel()));
             
             $manager->persist($object);
-            $this->addReference('proceso_seguridad_'.$i, $object);
+            $this->addReference('tipo_entidad_proteccion_'.$type, $object);
         }
+        
         $manager->flush();
     }
     
